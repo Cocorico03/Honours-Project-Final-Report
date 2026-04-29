@@ -5,584 +5,266 @@
 \usepackage{changepage}
 \usepackage{xifthen}
 \usepackage{amsmath}
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-\usepackage{mathrsfs}
-\usepackage{accents}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\usepackage{yhmath}
 \usepackage{setspace}
 \usepackage{xcolor}
-\usepackage{algorithmic}
-\usepackage[ruled,linesnumbered, longend]{algorithm2e}
 \usepackage{graphicx,caption}
-\captionsetup{width=.9\textwidth}
-\usepackage{ifmtarg}
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{caption}
 \usepackage{array}
-\usepackage{diagbox}
-\usepackage{makecell}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue}
-
-\usepackage{xr}
-%\externaldocument{Thesis}
-
-% code for line section heading 
-\makeatletter
-\def\@hangfrom#1{\setbox\@tempboxa\hbox{{#1}}%
-      \hangindent 0pt%\wd\@tempboxa
-      \noindent\box\@tempboxa}
-\makeatother
-
-% new environment for proof of something
-\newenvironment{myproof}[2] {\paragraph{Proof of {#1} {#2} :}}{\hfill$\square$}
-
-% packages used for introduction
-
-% packages from Haolong's first paper
-\usepackage{amsthm}
-\usepackage{rotating}
-\usepackage{booktabs}
-\usepackage{tikz}
-\usepackage{pgfplots}
-    \pgfplotsset{
-        table/search path={./plots},
-    }
-\usepackage{pgfplotstable}
-
-% packages used for conclusion.tex
-\usepackage{multirow}
-
-% package used for include pdf fig
-\usepackage{pdfpages}
-
-% packages for experiments
-\usetikzlibrary{positioning}
-
 \usepackage{comment}
 \usepackage[backend=biber]{biblatex}
 \addbibresource{ref.bib}
 
-
-\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
-
-\usepackage{glossaries}
-\let\oldgls\gls
-\renewcommand{\gls}[1]{\oldgls*{#1}}
-\let\oldglspl\glspl
-\renewcommand{\glspl}[1]{\oldglspl*{#1}}
-\let\oldacrlong\acrlong
-\renewcommand{\acrlong}[1]{\oldacrlong*{#1}}
-\let\oldacrfull\acrfull
-\renewcommand{\acrfull}[1]{\oldacrfull*{#1}}
-\newcommand{\lptsd}{\textit{Periodic Time Series Data}}
-\newcommand{\ptsd}{Periodic Time Series Data}
-\newtheorem{thm}{Theorem}
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
-\newtheorem{example}{Example}
-
-\usetikzlibrary{patterns}
-
-
-\newacronym[plural=GIDs, firstplural=Group Identification Numbers (GIDs)]{gid}{GID}{Group Identification Number}
-
-\newacronym[plural=GIXs, firstplural=Group Indices (GIXs)]{gind}{GIX}{Group Index}
-\newacronym[plural=NIDs, firstplural=Node Identification Numbers (NIDs)]{nid}{NID}{Node Identification Number}
-\newacronym[plural=LA, firstplural=learning automata]{la}{LA}{Learning Automaton}
-\newacronym[]{calaGMS}{CALA-GMS}{CALA-based Global Maximum Search}
-\newacronym[]{glcala}{G-LSCALA}{Generalized-LSCALA}
-\newacronym[]{mglcala}{MG-LSCALA}{modified \gls{glcala}}
-\newacronym[plural=CALA, firstplural=Continuous Action Learning Automata (CALA)]{cala}{CALA}{Continuous Action Learning Automaton}
-\newacronym{lcala}{LSCALA}{Linear Search-Based CALA}
-\newacronym{orp}{ORP}{Optimal Reward Probability}
-%\newacronym{porp}{PORP}{practical optimal reward probability}
-\newacronym{loa}{LOA}{local optimal action}
-\newacronym[plural=FUBIs]{fbi}{FUBI}{a finite union of bounded intervals}
-\newacronym[plural=FUBIs]{afbi}{AFUBI}{an almost finite union of bounded intervals}
-\newacronym{sr}{SR}{searching range}
-\newacronym{srp}{SRP}{searching range parameter}
-\newacronym[plural=CPDs]{cpd}{CPD}{Continuous Probability Distribution}
-\newacronym{malg}{G-LSCALA}{Generalized-LSCALA}
-\newacronym[plural=PPs, firstplural=probing points (PPs)]{pp}{PP}{probing points}
-\newacronym[]{ppd}{PPD}{PP Density}
-\newacronym[]{trp}{TR}{Transition Resistance of $\mathcal{P}$}
-\newacronym[]{mc}{MC}{Markov Chain}
-\newacronym[]{rmc}{RMC}{Restricted MC}
-\newacronym[]{omc}{OMC}{Original MC}
-\newacronym[]{ccc}{CCC}{Closed Communicating Class}
-\newacronym[]{rv}{r.v.}{Random Variable}
-\newacronym[]{mcmc}{MCMC}{Markov Chain Monte Carlo}
-\newacronym[]{pdf}{pdf}{probability density function}
-%\usepackage{mystyle}  %% need it
-
-% commands for algorithm environment ... see algorithm template for examples
-\newcommand{\INPUT}{\textbf{Input: }}
-\newcommand{\OUTPUT}{\textbf{Output: }}
-\newcommand{\METHOD}{\textbf{Method: }\vspace{.2cm}}
-\newcommand{\ENDMETHOD}{\textbf{End Algorithm}}
-
-\newtheorem{operation}{Operation}
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\newtheorem{requirement}{Requirement}
-\newtheorem{assumption}{Assumption}
-
-\newtheorem{claim}{Claim}
-\newtheorem{proposition}{Proposition}
-\newtheorem{problem}{Problem}
-\newtheorem{remark}{Remark}
-
-%\newcommand{\bc}{\begin{center}}
-%\newcommand{\ec}{\end{center}}
-%\newcommand{\be}{\begin{equation}}
-%\newcommand{\ee}{\end{equation}}
-%\newcommand{\bt}{\begin{tabbing}}
-%\newcommand{\et}{\end{tabbing}}
-%\newcommand{\bi}{\begin{itemize}}
-%\newcommand{\ei}{\end{itemize}}
-%\newcommand{\ben}{\begin{enumerate}}
-%\newcommand{\een}{\end{enumerate}}
-%\newcommand{\no}{\noindent}
-\newcommand{\kodu}{\rule{6.5in}{0.02in}}
-%\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
-
 \parindent 0em
-%\setlength{\parskip}{.10in}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
-%\setcounter{chapter}{1}
-% my-macros.tex
-% MAcro Definitions
-% My tweaked sectioning commands
-
-
-\newcommand{\pr}[1]{Pr\left[ #1\right]}
-
-\newcommand{\api}[1]{\wideparen{\pi}^*_{#1}}
-
-
-\newcommand{\dist}[2]{%
-  \ifthenelse{\isempty{#1}}%
-    {\mbox{\bf dist}}
-    {\mbox{\bf dist}_{#2}(#1)}
-}
-
-\newcommand{\rw}[1]{%
-  \ifthenelse{\isempty{#1}}%
-    {\phi}
-    {\phi(#1)}
-}
-
-\newcommand{\rwe}[1]{%
-  \ifthenelse{\isempty{#1}}%
-    {\phi^*}
-    {\phi^*\left(#1\right)}
-}
-
-\newcommand{\drw}[1]{
-\ifthenelse{\isempty{#1}}%
-    {\psi}
-    {\psi\left(#1\right)}
-}
-
-
-\newcommand{\drwe}[1]{
-\ifthenelse{\isempty{#1}}%
-    {\psi^*}
-    {\psi^*\left(#1\right)}
-}
-
-
-\newcommand{\rwp}[3]{\textit{Rw}_{#1}\left(#2,#3\right)}
-\newcommand{\rwps}[2]{\mbox{\textit{Rw}}_{#1}\left(#2\right)}
-\newcommand{\srwps}[2]{\mbox{\textit{Rw}}^s_{#1}\left(#2\right)}
-\newcommand{\orwps}[2]{\mbox{\textit{Rw}}^o_{#1}\left(#2\right)}
-\newcommand{\termA}[0]{\mathbb{A}(n,m)}
-\newcommand{\termB}[0]{\mathbb{B}(n,m)}
-
-
-\newcommand{\trans}[1]{
-	\ifthenelse{\isempty{#1}}%
-    {\mathcal{T}_c}
-    {\mathcal{T}_c\left(#1\right)}
-}
-\newcommand{\transinv}[1]{
-	\ifthenelse{\isempty{#1}}%
-    {\mathcal{T}^{-1}_c}
-    {\mathcal{T}^{-1}_c\left(#1\right)}
-}
-
-
-\newcommand{\ttfull}[3]{\theta_{#3}^{#1 #2}}
-\renewcommand{\tt}[1]{\theta_{#1}}
-
-\newcommand{\meas}[1]{%
-  \ifthenelse{\isempty{#1}}%
-    {m}
-    {m\left(#1\right)}
-}
-
-\newcommand{\ar}[1]{\mathcal{A}\hspace{-0.2em}\left(#1\right)} % (a)verage of the (r)eward function
-\newcommand{\ari}[2]{\mathcal{A}^{#2}\hspace{-0.2em}\left(#1\right)} % (a)verage of the (r)eward function (i)nteger
-\newcommand{\arisup}[1]{\tilde{\mathcal{A}}^{#1}}
-\newcommand{\ali}[2]{\mathscr{A}^{#1}\hspace{-0.2em}\left(#2\right)} % (a)verage (l)og (i)nteger
-\newcommand{\aali}[3]{\mathscr{A}_{#1}^{#2}\hspace{-0.1em}\left(#3\right)} % (a)bbreviated (a)verage (l)og (i)nteger
-\newcommand{\aaliB}[3]{\mathscr{B}_{#1}^{#2}\hspace{-0.1em}\left(#3\right)} % (a)bbreviated (a)verage (l)og (i)nteger
-
-\newcommand{\citeEq}[1]{Eq~(\ref{#1})}
-\newcommand{\g}[2]{\mathbb{G}_#1\left(#2\right)}
-
-
-\newcommand{\isr}[2]{%
-  \ifthenelse{\isempty{#2}}%
-    {\mathcal{I}\left(#1\right)}
-    {\mathcal{I}\left(#1,#2\right)}
-}% integral on searching range
-
-
-\newcommand{\gid}[1]{\mbox{GID}\left(#1\right)}
-\newcommand{\gix}[1]{\mbox{GIX}\left(#1\right)}
-
-
-%\newcommand{\naisr}[1]{\mathscr{I}_{#1}}% nomalized abbreviated integral on searching range (integer)
-%\newcommand{\supisr}[1]{\tilde{\mathcal{I}}^{#1}}
-
-
-%\newcommand{\cuniform}[2]{\mathbf{U}(#1-1/#2, #1+1/#2)}
-%\newcommand{\cuniform}[2]{\mathbf{U}(#1-\frac{1}{#2}, #1+\frac{1}{#2})}
-%\newcommand{\prodIsrTOne}[3]{\mathcal{P}_{#2}^{#1}\left(#3\right)}
-
-\newcommand{\kernel}[1]{%
-  \ifthenelse{\isempty{#1}}%
-    {\mathbf{id}}
-    {\mathbf{id}(#1)}
-}
-
-
-\renewcommand{\next}[1]{\mathbf{Next}\left[#1\right]}
-\newcommand{\prev}[1]{\mathbf{Prev}\hspace{-0.2em}\left[#1\right]}
-\newcommand{\optEst}[0]{\hat{\phi}_\alpha(n)}
-
-%\newcommand{\veryshortarrow}[1][3pt]{\mathrel{%
-%   \hbox{\rule[\dimexpr\fontdimen22\textfont2-1pt\relax]{#1}{.4pt}}%
-%   \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
-\makeatletter
-\setbox0\hbox{$\xdef\scriptratio{\strip@pt\dimexpr
-    \numexpr(\sf@size*65536)/\f@size sp}$}
-\newcommand{\veryshortarrow}[1][4pt]{{%
-    \hbox{\rule[\scriptratio\dimexpr\fontdimen22\textfont2-.2pt\relax]
-               {\scriptratio\dimexpr#1\relax}{\scriptratio\dimexpr.4pt\relax}}%
-   \mkern-4mu\hbox{\let\f@size\sf@size\usefont{U}{lasy}{m}{n}\symbol{41}}}}
-\makeatletter
-
-%----------------------------------------------------------------------
-%###################################
-%## Edit this part
-%###################################
 
 \renewcommand{\baselinestretch}{1.2}
-% Reset page margins properly for doublesided pages
 \usepackage[includehead,left=3.25cm,right=2.5cm,top=2.5cm,headsep=1.5cm,headheight=0.0cm,bottom=2.5cm,footskip=1.0cm]{geometry}
 \raggedbottom
 
-\title{Channel-Aware Cooperative Perception for Blind Spot Detection in V2X Networks}
+\title{\textbf{Channel-Aware Cooperative Perception for Blind Spot Detection in V2X Networks}}
 
+\author{Aiden McGarrie, Rageshwaree Beegodhur, Vanessa Vo \\ \textit{School of Electrical Engineering and Computer Science,} \\ \textit{University of Ottawa, Canada}}
 
-\author{Aiden Mcgarrie, Rageshwareee Beegoodhur, Vanessa Vo \\ \textit{School of Electrical Engineering and Computer Science,} \\ \textit{University of Ottawa, Canada}}
-
-
-
+\date{}
 
 \begin{document}
-%
 
-
-% make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
 \begin{abstract}
 \noindent
-Autonomous vehicles have become a focal point of research and development because of their ability to percieve their surroundinggs. However, physical obstructions and limited perceptions create blind spots onboard sensors cannot resolve alone. This report proposes a channel-aware cooperative vehicle-infrastructure perception system that addresses this issue by using Road-side Unit (RSU) to detect objects in blind spots and selectively transmit the information to nearby vehicles using a bandwidth constrained Vehicle-to-Everything (V2X) channel. 
+Autonomous vehicles have become a focal point of research and development because of their ability to perceive their surroundings. However, physical obstructions and limited perceptions create blind spots onboard sensors cannot resolve alone. This report proposes a channel-aware cooperative vehicle-infrastructure perception system that addresses this issue by using a Roadside Unit (RSU) to detect objects in blind spots and selectively transmit the information to nearby vehicles using a bandwidth-constrained Vehicle-to-Everything (V2X) channel.
 
 \medskip
 \noindent
-The system operates as an end-to-end pipeline on the DAIR-V2X datset, combining YOLOv10-N object detection, ByteTrack multi-object tracking, and bird's eye view localization using monocular depth and LiDAR calibration. A Hungarian matching algorithm with a depth-aware Mahalanobis distance cost matrix identifies blind spot targets, and a lighteright Multi-Layer Perceptron (MLP) Semantic Gate prioritizes which targets to transmit under realistic per-frame bandwith budgets.
+The system operates as an end-to-end pipeline on the DAIR-V2X dataset, combining YOLOv10-N object detection, ByteTrack multi-object tracking, and bird's eye view localization using monocular depth and LiDAR calibration. A Hungarian matching algorithm with a depth-aware Mahalanobis distance cost matrix identifies blind spot targets, and a lightweight Multi-Layer Perceptron (MLP) Semantic Gate prioritizes which targets to transmit under realistic per-frame bandwidth budgets.
 
 \medskip
 \noindent
-Comparative testing demonstrates the MLP Semantic Gate consistently outperforms Random baselines, Hand Gate, and No Gate across all transmission levels, with a precision-recall score 24.1x higher than the Random baseline. The results highlight that prioritizing bandwith meaningfully improves cooperative perception under real-world communication constraints. 
+Comparative testing demonstrates the MLP Semantic Gate consistently outperforms Hard Gate, No Gate, and Random baselines across all transmission levels, achieving a precision-recall score of 0.551 compared to a random baseline of 0.023. The results highlight that prioritizing bandwidth meaningfully improves cooperative perception under real-world communication constraints.
 \end{abstract}
 
+\newpage
+\tableofcontents
+\newpage
 
 \section{Introduction}
 
-\medskip
-In the context of current technological advancements, drone aerial photography technology has been widely applied in multiple fields such as agricultural monitoring, geographical mapping, urban planning, and more. With the continuous growth in application demands, there is an increasing need for precision and efficiency in detecting small objects in drone aerial photography. The demand for real-time image processing and object detection on drone platforms is growing day by day. 
+A car moving through a busy intersection sees only what its cameras and sensors can reach. Anything blocked by another vehicle, a building, or a roadside structure simply does not exist from its perspective until, often, it is too late. This is not a minor limitation --- blind spots are a leading factor in urban collisions, and no amount of sensor improvement on a single vehicle fully solves the problem. The physics of line-of-sight means something will always be hidden.
 
 \medskip
-\textbf{This technology has a wide range of applications across key areas including:}
+One practical answer is to stop relying solely on what the vehicle itself can see. RSUs, cameras and sensors mounted at intersections above the flow of traffic, have a fundamentally different vantage point. They can see around corners, over the tops of trucks, and into the gaps between vehicles. If an RSU can communicate what it sees to a nearby vehicle in real time, that vehicle gains awareness it could not produce on its own. This is the core idea behind V2X cooperative perception.
 
+\medskip
+The hard part is not the sensing --- it is the communication. A V2X channel has limited bandwidth, and an RSU watching a busy intersection may detect thirty or forty objects per frame. Sending all of them is not realistic. What gets transmitted has to be chosen carefully, and chosen fast. A system that picks randomly, or sends everything regardless of what the vehicle already knows, wastes the channel on information that does not help. The question is how to identify which detections are actually in the vehicle's blind spot, and then how to rank them when only a few can be sent.
+
+\medskip
+This paper describes a system built to answer that question. Using the DAIR-V2X dataset \cite{yu2022dairv2x}, we built a full pipeline that runs detection with YOLOv10-N \cite{wang2024yolov10}, tracks objects over time with ByteTrack \cite{zhang2022bytetrack}, converts detections into shared world coordinates, matches RSU and vehicle object lists to find what the vehicle is missing, and then uses a trained MLP to decide what is worth transmitting given the available bandwidth. The matching step uses Mahalanobis distance rather than simple Euclidean distance, which matters because position uncertainty grows with depth and a naive distance metric ignores that entirely.
+
+\medskip
+The contributions of this work are:
 \begin{itemize}
-    \item \textbf{Traffic monitoring:} By detecting and identifying vehicles and pedestrians in real time, object detection technology can significantly improve the efficiency of managing traffic flows.
-    \item \textbf{Agricultural pest control:} Used in precision agriculture, the object detection system carried by drones can effectively monitor and identify pests on crops.
-    \item \textbf{Wildlife protection:} In protected areas, object detection technology can help researchers monitor the behavior and abundance of wild animals to develop more effective conservation measures.
-\end{itemize}
-
-
-\medskip
-Traditional object detection models often face challenges of low accuracy and slow processing speeds when dealing with small objects in high-altitude photography. To address these challenges, this report proposes an improved method based on the YOLOv8 model, aimed at optimizing the model structure and introducing attention mechanisms, making it more suitable for detecting small objects in high-altitude drone aerial photography environments.
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
-\caption{Sample image from the UADTV dataset \cite{uavdt}}
-\label {Fig1}
-\end{figure}
-
-
-
-
-Therefore, this study proposes several targeted improvements:
-\begin{itemize}
-    \item By adjusting the parameter configuration of YOLOv8, further improve the algorithm's recognition accuracy for specific small objects;
-    \item Utilizing the anchor-free feature of YOLOv8 to simplify the algorithm structure, aiming to increase operational speed for smooth operation on smaller devices;
-    \item Test and integrate the YOLOv8-P2 structure, adding a detection head for small objects
-    \item Combining YOLOv8's FPN network and introducing the attention mechanism from Transformers to achieve comprehensive utilization of high-level and low-level semantics in images, thereby achieving more accurate identification of small objects in the high-altitude, unobstructed environments.\cite{9607536}
-    
+    \item A complete cooperative perception pipeline running on real DAIR-V2X data, from raw frames to identified blind spot targets.
+    \item A depth-aware covariance model for bird's eye view matching that accounts for how uncertainty scales with distance.
+    \item A channel-aware MLP Semantic Gate trained to prioritize true blind spot targets under five different bandwidth levels (L0--L4).
+    \item An evaluation comparing MLP, Hard Gate, No Gate, and Random strategies using mAP at 2m, 4m, and 6m thresholds, alongside recall and precision-recall metrics.
 \end{itemize}
 
 \medskip
-To achieve these improvement objectives, this study selected the annotated VisDrone dataset as the training and validation set. The VisDrone dataset contains a wealth of small objects from a high-altitude perspective, making it an ideal choice for evaluating the performance of drone object detection algorithms. 
+Section 2 covers related work. Section 3 describes the pipeline in detail. Section 4 presents results. Section 5 concludes.
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Cooperative Perception and V2X Communication}
+
+The idea of sharing perception data between vehicles is not new, but making it work under real communication constraints has proven difficult. Early V2V work like V2VNet \cite{wang2020v2vnet} showed that sharing intermediate feature maps between vehicles could substantially improve joint state prediction compared to acting on local data alone. The results were compelling, but the approach assumed essentially unlimited communication --- every vehicle shared everything with every other vehicle in range. That assumption does not hold in practice.
 
 \medskip
-Finally, to test the effectiveness of the proposed improvements through training and validation on VisDrone, the UAVDT dataset was used as the test set to assess performance. The UAVDT dataset includes a large number of drone-captured videos, particularly emphasizing the problem of dynamic small object detection in complex environments. Its diverse scenarios, different weather conditions, and time periods provide a good platform for testing the robustness and applicability of the algorithm.
+Where2comm \cite{hu2022where2comm} was one of the first systems to treat bandwidth as a hard constraint rather than an afterthought. It used spatial confidence maps to identify which parts of the scene were actually informative and transmitted only those regions, cutting communication volume significantly while preserving most of the accuracy gain. More recent work on task-oriented semantic communication \cite{gan2026scomcp} takes this further, asking not just which features are informative but which are relevant to the specific downstream task. Our approach follows a similar philosophy: rather than compressing or filtering raw features, we train a small classifier to score each blind spot candidate by how much it matters to the receiving vehicle, then transmit only the top-ranked ones.
 
-\section{Related Works}
+\subsection{Object Detection}
 
-\subsection{Object detection}
-The task of object detection is to identify all objects of interest in an image and determine their categories and locations. It is one of the core issues in the field of computer vision. Object detection has always been one of the most challenging problems in the field of computer vision due to the different appearances, shapes, and postures of different objects, coupled with factors such as lighting and obstacles during the imaging process.
-
-\medskip
-There are four major categories of image recognition tasks in computer vision:\\
-(1) Classification: Given a picture or a video, determine what category of objects it contains.\\
-(2) Positioning-Location: Locate the location of this object.\\
-(3) Detection: Locate the location of the object and know what the object is.\\
-(4) Segmentation: It is divided into instance segmentation (Instance-level) and scene segmentation (Scene-level) to solve the problem of "which object or scene each pixel belongs to."
+Object detection sits at the foundation of every perception pipeline we are aware of. The field split early into two camps. Two-stage detectors like Faster R-CNN \cite{ren2016faster} propose candidate regions first and then classify them, which gives strong accuracy but at a speed cost that makes real-time deployment difficult. Single-stage detectors like the original YOLO \cite{redmon2016yolo} collapsed this into one pass over the image, trading some accuracy for a large gain in speed. That tradeoff has narrowed considerably over the years as single-stage methods matured.
 
 \medskip
-Our task is the third type of object detection, detecting the location and category of the object in the picture
-\subsubsection{One-stage object detection}
-Single-stage object detection has gained widespread application in recent years due to its real-time processing capabilities. For example, YOLO (You Only Look Once)\cite{redmon2016look} and SSD (Single Shot MultiBox Detector)\cite{Liu_2016} predict the category and location of the object directly from the image through a separate neural network model, omitting the candidate area proposal step in the traditional two-stage method. The main advantage is their efficiency, they enable faster inference without sacrificing too much accuracy, which makes them ideal for applications that require real-time processing. Among them, the YOLO series achieves fast and efficient object detection by dividing the image into grids and predicting multiple bounding boxes and category probabilities simultaneously on each grid unit.
+YOLOv10 \cite{wang2024yolov10} is the detection model used in this work. It removes the need for non-maximum suppression at inference time by using a dual-label assignment strategy during training, which simplifies the pipeline and improves end-to-end speed. The Nano variant, YOLOv10-N, is the smallest member of the family and is specifically intended for hardware with limited compute --- a realistic constraint for an RSU running at the edge.
 
-\subsubsection{Two-stage object detection}
-Two-stage object detection technology, such as R-CNN\cite{girshick2014rich} and its variants (Fast R-CNN, Faster R-CNN\cite{ren2016faster}), first uses a Region Proposal Network (RPN) in the first stage to generate potential object candidate regions. In the second stage, these candidate areas are then sent to a deep convolutional network for feature extraction, and the category and precise location of the object are finally determined. 
+\subsection{Multi-Object Tracking}
 
-\medskip
-The advantage of dual-stage object detection is that through two-stage processing, objects in the image can be more accurately located and classified. However, the disadvantages are also obvious. When generating a large number of regional suggestions in the first stage, computing resources are consumed greatly, which may not be efficient enough in real-time applications.
+Detection alone gives you a list of boxes per frame with no memory across time. Tracking connects those boxes into trajectories, assigning consistent identities so that the same vehicle keeps the same ID across hundreds of frames. ByteTrack \cite{zhang2022bytetrack} does this by matching not just high-confidence detections but also low-confidence ones that prior methods simply discarded. The reasoning is straightforward: a partially occluded vehicle may generate a weak detection, but it is still the same vehicle and losing track of it causes problems downstream. ByteTrack's two-stage matching keeps these weak detections alive, which meaningfully reduces the number of identity switches in crowded scenes --- exactly the conditions our pipeline operates in.
 
-\subsubsection{YOLOv8}
-Originally trained on the COCO dataset, YOLOv8 excels at identifying large objects with high accuracy.
-Need for Small Object Enhancement: Despite its strengths, YOLOv8's performance on detecting small objects, crucial for drone aerial imagery, is identified as a key area for improvement. Figure 2 shows the structure of YOLOv8.
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=1\textwidth]{full_evaluation.png}}
-\caption{Structure of YOLOv8}
-\label {Fig2}
-\end{figure}
+\subsection{Probabilistic Matching and Mahalanobis Distance}
 
-\subsubsection{Anchor-free methods}
-Anchor-free technology is an Object detection method that does not use predefined anchors. Traditional anchor-based detectors, such as Faster R-CNN and SSD, rely on preset anchor frames with different sizes, scales, and aspect ratios to predict the location of objects in images. These anchor points serve as candidate boxes, which are adjusted and classified through the network to determine the final object boundaries and categories. 
+When you project a camera detection into world coordinates, the resulting position is not a point --- it is a distribution. Monocular depth estimation introduces error that grows as distance increases, and that error is not symmetric: longitudinal uncertainty (how far away something is) grows much faster than lateral uncertainty (how far left or right it is). A matching algorithm that treats each detection as a precise point and measures Euclidean distance between them ignores all of this, leading to false matches at range and missed matches near the camera where everything is crowded together.
 
 \medskip
-However, it also brings some challenges, such as the complexity of anchor point selection and the tuning of a large number of hyperparameters. Anchor-free technology is also used in YOLOv8, which is what we will improve.
-
-\subsection{Transformer(ViT)}
-Vision Transformer (ViT)\cite{dosovitskiy2021image} is a groundbreaking technology in the field of computer vision. It adopts the Transformer architecture and was originally mainly used for natural language processing. The core innovation is to decompose images into small 16x16 image patches, treating them as elements in a sequence, similar to words in text processing. These image patches are then converted to embedding vectors throught linear projection and fed into a standard Transformer encoder. 
-
-\medskip
-Furthermore, ViT introduces position embedding to preserve the position information of image patches. ViT is also widely used in Object Detection tasks. Figure 3 shows the structure of ViT
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
-\caption{Structure of Vit\cite{dosovitskiy2021image}}
-\label {Fig3}
-\end{figure}
-
-
-\subsubsection{Shuffle Attention}
-Shuffle attention\cite{yang2021sanet} is a variation of vit, which uses Shuffle Units to effectively combine two types of attention mechanisms.Specifically, SA first groups channel dimensions into multiple sub-features before processing them in parallel. Then, for each sub-feature, SA utilizes a Shuffle Unit to depict feature dependencies in both spatial and channel dimensions. The core advantage of this mechanism lies in its lightweight and high efficiency, because it allows the network to maintain low computational costs while enhancing feature processing capabilities by limiting the increase in parameters and computational complexity.
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
-\caption{Structure of Shuffle Attention\cite{yang2021sanet}}
-\label {Fig4}
-\end{figure}
-
+The Mahalanobis distance \cite{mahalanobis1936} addresses this by folding the covariance structure of each detection's uncertainty directly into the distance calculation. Two detections that are far apart in meters but within each other's uncertainty ellipses will have a small Mahalanobis distance; two detections that are close in meters but with very different uncertainty structures will have a larger one. Paired with the Hungarian algorithm \cite{kuhn1955hungarian} for optimal one-to-one assignment, this gives a matching framework that is substantially more robust to the noise inherent in real-world BEV projections.
 
 \section{Methodology}
-\subsection{Dataset Selection}
-We chose to use VisDrone-2019 as the training test and validation set of the model because this data set has the following advantages: First, the data set covers a wide range of terrains, weather conditions, and lighting situations. recognition ability in various environments. Secondly, VisDrone contains more than 2.6 million manually annotated bounding boxes, covering a variety of objects, providing rich annotation information to help the model learn and understand small objects in complex scenes. In addition, the data set contains 288 video clips and 10,209 still images, totaling 261,908 frames of images, providing large-scale data resources for model training. 
+\label{sec:method}
+
+\subsection{Dataset}
+
+All experiments in this paper use the DAIR-V2X Cooperative dataset \cite{yu2022dairv2x}, recorded in urban China across a range of real intersection scenarios. The dataset pairs a vehicle-mounted camera with a fixed infrastructure RSU camera at the same location, providing synchronized frames from both viewpoints along with LiDAR scans, 3D bounding box annotations, and full sensor calibration for both platforms.
 
 \medskip
-It is worth mentioning that VisDrone is a pre-split data set, which means that the data has been organized into training and testing subsets, making it easy to use directly and accelerating the model development and verification process. These features make VisDrone an ideal choice for small object detection research and application development.\cite{zhu2021detection}
+There are 8,577 vehicle-side frames and 15,285 infrastructure-side frames in total. Each frame comes with ground-truth 3D labels giving the true world position of every object in the scene, which we use both to generate training labels for the Semantic Gate and to evaluate blind spot detection accuracy at the end. The calibration files provide the extrinsic and intrinsic parameters needed to move detections out of image space and into a shared world coordinate system --- without these, cross-view matching would not be possible.
 
-We also used UAVDT\cite{u}, an open source unlabeled UAV high-altitude aerial photography data set, for universal testing.
+\medskip
+Seven classes are detected throughout: Car, Van, Bus, Truck, Cyclist, Motorcyclist, and Trafficcone. For training the vehicle-side detector we split the data 80/20 into 12,228 training images and 3,057 validation images, using a fixed random seed of 42 so the split is reproducible. DAIR-V2X stores labels as JSON files with pixel-coordinate bounding boxes in \texttt{(xmin, ymin, xmax, ymax)} format; these were converted to YOLO's normalized \texttt{(class\_id, x\_center, y\_center, width, height)} format before training.
 
-\subsection{YOLOv8-P2 structure}
-The P2 structure of YOLOv8 is a configuration publicly released by the YOLOv8 team, specifically enhanced for detecting small objects.
-It includes an additional detection head for small objects compared to the basic structure, mainly collecting information from the P3 layer, which corresponds to the early stages of the image entering the network.
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
-\caption{Structure of Yolov8-P2}
-\label {Fig5}
-\end{figure}
+\subsection{System Pipeline Overview}
 
-\subsection{Shuffle Attention Module}
-Due to the characteristics of the P2 structure mentioned above, the first c2f layer collects information about small objects on a large scale in the early stage of neural network, so I decided to use attention mechanisms to enhance this part. After the first c2f layer in YOLOv8, a shuffle attention module is added to mix channel features from different layers, as shown in Figure 5. This module utilizes the shuffle attention's ability to mix multi-channel information, which significantly enhances the model's accuracy.
+The pipeline runs two streams in parallel --- one processing RSU frames, one processing vehicle frames --- and merges them at the matching stage. Figure~\ref{fig:pipeline} shows the full flow.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
-\caption{Structure of Yolov8-P2 add shuffle attention module}
-\label {Fig6}
-\end{figure}
-
-
-
-\subsection{Experimental base on TOOD}
-
-YOLOv8 leverages the latest advancements in anchor-free technology, introducing a novel method for enhancing detection performance by aligning detection tasks with specific object characteristics, as proposed by ``TOOD: Task-aligned One-stage Object Detection.''\cite{feng2021tood} 
-
-\medskip
-This approach posits that synchronizing detection tasks with the inherent features of objects can lead to higher precision, particularly in the demanding scenario of small object detection from aerial imagery. Building upon the TOOD framework, this study examines the use of the RotatedTaskAlignedAssigner within the YOLOv8 architecture, aiming to improve model accuracy for small object detection by adjusting the quantity of prediction boxes. This adjustment is hypothesized to optimize the balance between detection sensitivity and specificity, thus enhancing overall performance for detecting small-scale objects.
-
-\subsection{Hypothesis}
-
-The hypothesis of this research is based on the characteristic of small objects occupying minimal area in images, asserting that a smaller number of appropriately-sized proposal boxes can sufficiently envelop these objects. Such coverage is theorized not only to quicken the processing speed but also to amplify detection precision. By calibrating the quantity and dimensions of these prediction boxes through the RotatedTaskAlignedAssigner, the model is expected to yield superior results.
-
-\subsection{Technical Detail in Task-aligned Loss Function from TOOD}
-A pivotal element of the ``TOOD: Task-aligned One-stage Object Detection'' framework is its Task-aligned loss function, epitomized by the equation \( t = s^\alpha \times u^\beta \), where \( t \) represents the task-aligned training target, a product of the classification confidence score \( s \) and the predicted utility score \( u \).
-
-\medskip
-Within this framework, \( t \) is calculated for multiple positive sample points holding the maximum \( t \) values, while the rest are deemed negative. These positive sample points are most likely to match actual objects within the image, and the objective is to maximize their prediction accuracy.
-
-\medskip
-A lower \textit{topk} implies that the model focuses on a smaller subset of high-confidence predictions, which is particularly pertinent for the small objects present in the VisDrone dataset, often appearing as minuscule regions within aerial shots. Diminishing the \textit{topk} value allows the model to give precedence to the most likely regions for object occurrence, potentially leading to more accurate and expedited detection.
-
-
-
-\section{Experimental Result}
-
-\subsection{Experiment Setup}
-All experiments were conducted on the Ubuntu 22.04 operating system, utilizing a single NVIDIA Tesla T4 graphics card for training.
-
-\subsubsection*{Hyperparameter Settings}
-
-In our experiments, we configured the following key hyperparameters to optimize the training process of the model:
-
-\begin{itemize}
-    \item \textbf{Image Size (\texttt{imgsz})}: The input image size used for model training was set to 640 pixels.
-    \item \textbf{Training Epochs (\texttt{epochs})}: The model was iterated over the training data for 150 epochs.Except baseline model which setting is 100 epochs. The reason is the baseline model has converged after 80 epoch.
-    \item \textbf{Intersection over Union Threshold (\texttt{iou})}: Set at 0.6, this parameter is used for object detection criteria during training.
-    \item \textbf{\texttt{close\_mosaic} Parameter}: Set to 10, this parameter regulates the density of image mosaicking during data augmentation, enhancing the model's adaptability to complex scenes.
-    \item \textbf{Optimizer (\texttt{optimizer})}: Stochastic Gradient Descent (SGD) was chosen as the optimization algorithm to  control the convergence speed and stability.
-\end{itemize}
-
-
-
-
-
-
-\subsection{TOOD Experiment Result}
-
-The experiment adjusted the values of \textit{topk}, $\alpha$, and $\beta$, testing different combinations. The results were compared against the default values of \textit{topk}=10, $\alpha=0.5$, and $\beta=6$. The best outcome showed a 1.5\% improvement in \textit{map}50.
-
-\begin{table}[h]
 \centering
-\caption{Results of using YOLOv8n.pt on VisDrone Dataset}
-\label{tab:results}
-\begin{tabular}{cccccccc}
-\hline
-\textbf{\textit{TopK}} & \textbf{$\alpha$} & \textbf{$\beta$} & \textbf{Precision} & \textbf{Recall} & \textbf{mAP50} & \textbf{mAP50-95} \\ \hline
-10 & 0.5 & 6 & 0.392 & 0.294 & 0.269 & 0.151 \\
-13 & 0.5 & 6 & 0.387 & 0.289 & 0.266 & 0.148 \\
-7  & 0.5 & 6 & 0.385 & 0.303 & 0.275 & 0.152 \\
-5  & 0.5 & 6 & 0.400 & 0.305 & 0.279 & 0.154 \\
-5  & 0.75 & 6 & 0.393 & 0.301 & 0.275 & 0.150 \\
-5  & 1 & 6 & 0.409 & 0.303 & 0.286 & 0.153 \\
-5  & 1 & 5 & 0.397 & 0.304 & 0.278 & 0.150 \\
-5  & 1 & 4 & 0.394 & 0.306 & 0.278 & 0.150 \\
-5  & 0.8 & 6 & 0.386 & 0.306 & 0.278 & 0.152 \\
-5  & 0.9 & 6 & 0.389 & 0.301 & 0.276 & 0.151 \\ \hline
+\includegraphics[width=\textwidth]{pipeline_diagram.png}
+\caption{System pipeline. Infrastructure and vehicle streams are processed independently through detection, tracking, and BEV localization before being fused at the Hungarian matching stage to identify blind spot targets, which are then ranked by the Semantic Gate MLP for transmission.}
+\label{fig:pipeline}
+\end{figure}
+
+\medskip
+Both streams start with YOLOv10-N producing per-frame detections. ByteTrack then links those detections into tracks with stable IDs. The tracked detections are lifted out of image space into bird's eye view world coordinates using monocular depth and LiDAR calibration data. At the fusion point, the Hungarian algorithm with a Mahalanobis cost matrix matches RSU objects to vehicle objects --- anything on the RSU side with no match on the vehicle side is flagged as a blind spot candidate. The Semantic Gate MLP then scores each candidate and selects the top-N to transmit, where N comes from the simulated channel budget.
+
+\subsection{Object Detection Training}
+
+YOLOv10-N was chosen as the detector for both streams. The decision came down to speed and size: as the smallest variant in the YOLOv10 family, it is built for edge deployment on limited hardware, which is a realistic constraint for an RSU running at an intersection. Separate models were trained for the vehicle-side and infrastructure-side cameras since the viewing angles and object appearance differ substantially between the two.
+
+\medskip
+\textbf{Training setup.} The vehicle-side model was trained for 150 epochs on an RTX 3070 GPU, taking roughly 8.3 hours. Input resolution was 640$\times$640 with a batch size of 16. We used SGD with a cosine learning rate schedule and standard YOLO data augmentation.
+
+\medskip
+\textbf{Results.} Figure~\ref{fig:training_curves} shows the training and validation curves over all 150 epochs. Loss drops consistently across all three components --- box, classification, and distribution focal loss --- on both train and validation sets. There is no visible gap opening between the two, which suggests the model is not overfitting. Precision and recall climb steadily and plateau near the end of training.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{results.png}
+\caption{Training and validation loss curves and validation metrics over 150 epochs for the vehicle-side YOLOv10-N model.}
+\label{fig:training_curves}
+\end{figure}
+
+\medskip
+Final validation metrics at epoch 150 are shown in Table~\ref{tab:detection_results}. The model reaches a precision of 0.828 and recall of 0.663, with mAP@50 of 0.737 and mAP@50-95 of 0.475.
+
+\begin{table}[htbp]
+\centering
+\caption{Vehicle-side YOLOv10-N validation results at epoch 150.}
+\label{tab:detection_results}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Precision} & \textbf{Recall} & \textbf{mAP@50} & \textbf{mAP@50-95} \\
+\midrule
+YOLOv10-N (vehicle-side) & 0.828 & 0.663 & 0.737 & 0.475 \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-
 \medskip
-Experimental findings indicate that the \textit{topk} value's manipulation substantially affects the precision of object detection in the VisDrone dataset. An augmented \textit{topk} value might compel the model to consider an excess of candidate areas, dispersing its focus and possibly impairing precision. On the contrary, a diminished \textit{topk} can result in a more concentrated search region, which is instrumental in boosting the model's capacity to detect small objects with heightened accuracy.
+Per-class performance is visible in the Precision-Recall curve in Figure~\ref{fig:pr_curve}. Bus comes out on top at mAP@50 of 0.901, followed by Car at 0.850 and Truck at 0.842. Trafficcone is the weakest at 0.407 --- it is small, often partially occluded, and appears far less frequently than cars in the training data, which all work against it. Cyclist and Motorcyclist sit in the middle at 0.669 and 0.703 respectively, reflecting the challenge of detecting smaller, more articulated objects from a forward-facing vehicle camera.
 
-
-\subsection{Ablation Experiments}
-To investigate the behavior of our proposal method, we conducted several ablation studies by using YOLOv8 as our baseline model. 
-First, we adjusted the parameters of the initial YOLOv8 model and then added a shuffle attention module after the first c2f layer. Although the training duration significantly increased, the mAP50 also improved by 10\%.
-
-\medskip
-Next, we use YOLOv8-P2 structure replaced initial YOLOv8 structure. An additional detection head for small objects effectively improves accuracy, so the mAP50 increased 12\% compare to the baseline. 
-
-\medskip
-In this way, our ablation experiment proves that our improvements are correct.
-
-
-\begin{table}[ht]
+\begin{figure}[htbp]
 \centering
-\small
-\begin{tabularx}{\textwidth}{|X|c|c|c|c|c|}
-\hline
-\multirow{2}{*}{\makecell{\textbf{Model}}} & \textbf{mAP50} & \textbf{mAP95} & \textbf{Recall} & \textbf{Precision} & \textbf{FPS} \\ 
- & & & & & \\ \hline
-Yolov8s (Baseline) & 0.386 & 0.223 & 0.385 & 0.506 & 135.3 \\
-Yolov8s (adjusted) + ShuffleAttention & 0.486 & 0.319 & 0.329 & 0.638 & 134.4 \\
-Yolov8s-P2 (adjusted) + ShuffleAttention & 0.507 & 0.332 & 0.329 & 0.626 & 86.8 \\ \hline
-\end{tabularx}
-\caption{Comparison of baseline and Shuffle Attention enhancements.}
-\label{tab:yolov8_comparison}
-\end{table}
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.8\textwidth]{full_evaluation.png}}
-\caption{Precision-Recall Curve of YOLOv8(Baseline)}
-\label {Fig7}
+\includegraphics[width=0.75\textwidth]{BoxPR_curve.png}
+\caption{Per-class Precision-Recall curves. The bold blue line shows overall mAP@50 of 0.737.}
+\label{fig:pr_curve}
 \end{figure}
 
-
+\medskip
+The F1-Confidence curve in Figure~\ref{fig:f1_curve} peaks at 0.73 across all classes at a confidence threshold of 0.301. Bus and Truck lead here too, consistent with their stronger mAP scores. The fact that the peak sits at a fairly low confidence threshold reflects the dataset's difficulty --- pushing confidence higher cuts recall faster than it improves precision for most classes.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.8\textwidth]{full_evaluation.png}}
-\caption{Precision-Recall Curve of Yolov8-P2+ShuffleAttention}
-\label {Fig8}
+\centering
+\includegraphics[width=0.75\textwidth]{BoxF1_curve.png}
+\caption{F1-Confidence curves per class. Peak all-classes F1 of 0.73 at confidence threshold 0.301.}
+\label{fig:f1_curve}
 \end{figure}
 
-Based on the Precision-Recall Curves presented above, it is evident that there is a significant improvement in the detection of small object classes, such as 'people', 'bicycle', and 'motorcycle'. Notably, the 'people' class experienced a significant increase in mAP50 value, rising from 0.336 to 0.517, which indicates a marked enhancement for small object detection in model performance.
+\medskip
+Figure~\ref{fig:confusion} shows the normalized confusion matrix. Bus (0.87) and Car (0.81) are classified most reliably. The main confusion patterns make intuitive sense: 13\% of Cars are called Vans, and 5\% of Motorcyclists are called Cyclists. These pairs look similar from a front-facing camera, particularly at distance. Trafficcone has the worst background confusion rate at 0.62, meaning the model misses it outright most of the time. This is a known challenge with small, thin objects in complex backgrounds.
 
-\section{Conclusion}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\textwidth]{confusion_matrix_normalized.png}
+\caption{Normalized confusion matrix for the vehicle-side YOLOv10-N model on the validation set.}
+\label{fig:confusion}
+\end{figure}
 
-We trained an object detection model for high-altitude, unobstructed small objects using Yolov8 as the baseline. The following optimizations were made:
+\medskip
+Figure~\ref{fig:val_predictions} shows a sample validation batch with ground truth on the left and model predictions on the right. The model correctly localizes the dominant classes across a range of urban scenes, with the main visible errors occurring on distant or partially occluded objects.
 
-\begin{itemize}
-    \item Hyperparameters were fine-tuned.
-    \item The structure was enhanced by adopting a P2 architecture to include an additional detection head for small objects.
-    \item A shuffle attention module was incorporated to fuse semantic information across different layers.
-\end{itemize}
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{val_batch0_labels.jpg}
+    \caption{Ground truth labels}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{val_batch0_pred.jpg}
+    \caption{Model predictions}
+\end{subfigure}
+\caption{Validation batch: ground truth (left) vs YOLOv10-N predictions (right) on vehicle-side DAIR-V2X images.}
+\label{fig:val_predictions}
+\end{figure}
 
-Ultimately, ablation studies were conducted, which confirmed the effectiveness and efficiency of our optimizations.
+% -----------------------------------------------
+% PERSON B SECTIONS GO HERE
+% 3.4 BEV Coordinate System & LiDAR Projection
+% 3.5 ByteTrack Integration
+% 3.6.1 Hungarian Matching
+% 4.1 Experiment Setup
+% 4.2 Strategy Comparison
+% 4.4 Transmission Level Comparison
+% -----------------------------------------------
 
+% -----------------------------------------------
+% PERSON C SECTIONS GO HERE
+% 3.6.2 Mahalanobis Distance & Covariance Model
+% 3.6.3 Covariance Parameter Calibration
+% 3.7 Semantic Gate MLP
+% -----------------------------------------------
+
+\section{Experimental Results}
+\label{sec:results}
+
+\subsection{mAP Evaluation Results}
+
+The mAP evaluation measures how accurately the full system identifies and localizes blind spot targets at three distance thresholds: 2m, 4m, and 6m. Four strategies are compared across all thresholds and transmission levels. Figure~\ref{fig:full_eval} shows the complete evaluation dashboard.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{full_evaluation.png}
+\caption{Full system evaluation. Top row: BEV localization accuracy. Middle rows: blind spot matching statistics, gate score distribution, Precision-Recall curve, and average recall. Bottom row: ablation and AUC scores.}
+\label{fig:full_eval}
+\end{figure}
+
+\medskip
+Across the 2,832 cooperative frame pairs processed, the system identified 14,505 blind spot candidates of which 309 were confirmed true positives. The MLP Semantic Gate achieves a mean recall of 0.588, compared to 0.569 for Hard Gate, 0.131 for No Gate, and roughly 0.057 for Random. The gap between MLP and Hard Gate is modest in absolute terms but consistent --- it holds across all five transmission levels rather than appearing only under specific conditions. The ROC-AUC of 0.989 confirms the MLP ranks candidates well overall, and the PR-AUC of 0.551 against a random baseline of 0.023 shows that ranking quality translates into real retrieval performance on a heavily imbalanced dataset where true blind spot targets make up only a small fraction of all candidates.
+
+\medskip
+Figure~\ref{fig:semantic_eval} breaks recall down by scenario. In Near/LOS conditions the MLP hits 1.00 --- when targets are close and the channel budget is large enough to transmit all of them, the ranking barely matters. The difference shows up in the Medium and Far/NLOS scenarios, where the budget shrinks and the MLP's ability to rank the right targets to the top of the list starts to matter. At Far/NLOS, MLP recall drops to around 0.68, while Hard Gate falls to roughly 0.42. The gap is largest precisely where it counts most --- when targets are hardest to detect and the channel is tightest.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{semantic_gate_eval.png}
+\caption{Blind spot recall by strategy and scenario. Error bars show standard deviation across channel budget samples.}
+\label{fig:semantic_eval}
+\end{figure}
+
+\medskip
+At the tightest bandwidth level, L4 (204,800 bytes per target), the budget shrinks to just 3--4 targets per frame and all strategies converge. When only three objects can be sent, there is little room for a learned ranking to show its advantage over a heuristic one. This is an expected limitation of the setup rather than a failure of the model --- under extreme bandwidth constraints, any reasonable selection policy will perform similarly.
+
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
 
 \printbibliography[title={References}]
-\end{document}
 
+\end{document}
