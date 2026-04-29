@@ -312,7 +312,7 @@
 % in the abstract or keywords.
 \begin{abstract}
 \noindent
-Autonomous vehicles have become a focal point 
+Autonomous vehicles have become a focal point of research and development because of their ability to percieve their surroundinggs. However, physical obstructions and limited perceptions create blind spots onboard sensors cannot resolve alone. This report proposes a channel-aware cooperative vehicle-infrastructure perception system that addresses this issue by using Road-side Unit (RSU) to detect objects in blind spots and selectively transmit the information to nearby vehicles using a bandwidth constrained Vehicle-to-Everything (V2X) network. 
 
 \medskip
 \noindent
@@ -344,7 +344,7 @@ In the context of current technological advancements, drone aerial photography t
 Traditional object detection models often face challenges of low accuracy and slow processing speeds when dealing with small objects in high-altitude photography. To address these challenges, this report proposes an improved method based on the YOLOv8 model, aimed at optimizing the model structure and introducing attention mechanisms, making it more suitable for detecting small objects in high-altitude drone aerial photography environments.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{img000010.jpg}}
+\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
 \caption{Sample image from the UADTV dataset \cite{uavdt}}
 \label {Fig1}
 \end{figure}
@@ -394,7 +394,7 @@ The advantage of dual-stage object detection is that through two-stage processin
 Originally trained on the COCO dataset, YOLOv8 excels at identifying large objects with high accuracy.
 Need for Small Object Enhancement: Despite its strengths, YOLOv8's performance on detecting small objects, crucial for drone aerial imagery, is identified as a key area for improvement. Figure 2 shows the structure of YOLOv8.
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=1\textwidth]{yolov8.jpg}}
+\centerline{\includegraphics[width=1\textwidth]{full_evaluation.png}}
 \caption{Structure of YOLOv8}
 \label {Fig2}
 \end{figure}
@@ -411,7 +411,7 @@ Vision Transformer (ViT)\cite{dosovitskiy2021image} is a groundbreaking technolo
 \medskip
 Furthermore, ViT introduces position embedding to preserve the position information of image patches. ViT is also widely used in Object Detection tasks. Figure 3 shows the structure of ViT
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{vit.jpg}}
+\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
 \caption{Structure of Vit\cite{dosovitskiy2021image}}
 \label {Fig3}
 \end{figure}
@@ -421,7 +421,7 @@ Furthermore, ViT introduces position embedding to preserve the position informat
 Shuffle attention\cite{yang2021sanet} is a variation of vit, which uses Shuffle Units to effectively combine two types of attention mechanisms.Specifically, SA first groups channel dimensions into multiple sub-features before processing them in parallel. Then, for each sub-feature, SA utilizes a Shuffle Unit to depict feature dependencies in both spatial and channel dimensions. The core advantage of this mechanism lies in its lightweight and high efficiency, because it allows the network to maintain low computational costs while enhancing feature processing capabilities by limiting the increase in parameters and computational complexity.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{shuffle.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
 \caption{Structure of Shuffle Attention\cite{yang2021sanet}}
 \label {Fig4}
 \end{figure}
@@ -440,7 +440,7 @@ We also used UAVDT\cite{u}, an open source unlabeled UAV high-altitude aerial ph
 The P2 structure of YOLOv8 is a configuration publicly released by the YOLOv8 team, specifically enhanced for detecting small objects.
 It includes an additional detection head for small objects compared to the basic structure, mainly collecting information from the P3 layer, which corresponds to the early stages of the image entering the network.
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{p2.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
 \caption{Structure of Yolov8-P2}
 \label {Fig5}
 \end{figure}
@@ -449,7 +449,7 @@ It includes an additional detection head for small objects compared to the basic
 Due to the characteristics of the P2 structure mentioned above, the first c2f layer collects information about small objects on a large scale in the early stage of neural network, so I decided to use attention mechanisms to enhance this part. After the first c2f layer in YOLOv8, a shuffle attention module is added to mix channel features from different layers, as shown in Figure 5. This module utilizes the shuffle attention's ability to mix multi-channel information, which significantly enhances the model's accuracy.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{shuffle_p2.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{full_evaluation.png}}
 \caption{Structure of Yolov8-P2 add shuffle attention module}
 \label {Fig6}
 \end{figure}
@@ -556,7 +556,7 @@ Yolov8s-P2 (adjusted) + ShuffleAttention & 0.507 & 0.332 & 0.329 & 0.626 & 86.8 
 \end{table}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.8\textwidth]{pr1.png}}
+\centerline{\includegraphics[width=0.8\textwidth]{full_evaluation.png}}
 \caption{Precision-Recall Curve of YOLOv8(Baseline)}
 \label {Fig7}
 \end{figure}
@@ -564,7 +564,7 @@ Yolov8s-P2 (adjusted) + ShuffleAttention & 0.507 & 0.332 & 0.329 & 0.626 & 86.8 
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.8\textwidth]{pr2.png}}
+\centerline{\includegraphics[width=0.8\textwidth]{full_evaluation.png}}
 \caption{Precision-Recall Curve of Yolov8-P2+ShuffleAttention}
 \label {Fig8}
 \end{figure}
