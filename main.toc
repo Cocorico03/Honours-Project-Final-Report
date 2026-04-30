@@ -8,6 +8,10 @@
 \contentsline {subsection}{\numberline {3.1}Dataset}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}System Pipeline Overview}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Object Detection Training}{7}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Experimental Results}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}mAP Evaluation Results}{11}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Conclusion and Future Work}{13}{section.5}%
+\contentsline {subsection}{\numberline {3.4}ByteTrack Integration}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Blind Spot Identification}{18}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Hungarian Matching with Mahalanobis Distance}{20}{subsubsection.3.5.1}%
+\contentsline {section}{\numberline {4}Experimental Results}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}mAP Evaluation Results}{22}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}%
+\contentsline {section}{\numberline {6}Future Work}{26}{section.6}%
