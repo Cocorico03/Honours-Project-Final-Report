@@ -55,17 +55,16 @@ Comparative testing demonstrates the MLP Semantic Gate consistently outperforms 
 \newpage
 
 \section{Introduction}
-
-A car moving through a busy intersection sees only what its cameras and sensors can reach. Anything blocked by another vehicle, a building, or a roadside structure simply does not exist from its perspective until, often, it is too late. Blind spots are a leading factor in urban collisions, and no amount of sensor improvement on a single vehicle fully solves the problem. The physics of line-of-sight means something will always be hidden.
-
-\medskip
-One practical answer is to stop relying solely on what the vehicle itself can see. RSUs, cameras and sensors mounted at intersections above the flow of traffic, have a fundamentally different vantage point. They can see around corners, over the tops of trucks, and into the gaps between vehicles. If an RSU can communicate what it sees to a nearby vehicle in real time, that vehicle gains awareness it could not produce on its own. This is the core idea behind V2X cooperative perception.
+Cars driving through busy intersections can only see what their sensors can reach. Objects such as buildings, trucks, other cars consistently block the sensors view, creating blind spots that can lead to accidents. This issue can not just be fixed by adding more sensors to the car because something will always remain hidden. 
 
 \medskip
-The hard part is not the sensing but the communication. A V2X channel has limited bandwidth, and an RSU watching a busy intersection may detect thirty or forty objects per frame. Sending all of them is not realistic. What gets transmitted has to be chosen carefully, and quickly. A system that picks randomly, or sends everything regardless of what the vehicle already knows, wastes the channel on information that does not help. The question is how to identify which detections are actually in the vehicle's blind spot, and then how to rank them when only a few can be sent.
+A practical answer to this problem is to integrate RSUs, cameras and sensors mounted at intersections because they are able to scan the environment transmit the information to nearby vehicles, preventing collisions. 
 
 \medskip
-This paper describes a system built to answer that question. Using the DAIR-V2X dataset \cite{yu2022dairv2x}, we built a full pipeline that runs detection with YOLOv10-N \cite{wang2024yolov10}, tracks objects over time with ByteTrack \cite{zhang2022bytetrack}, converts detections into shared world coordinates, matches RSU and vehicle object lists to find what the vehicle is missing, and then uses a trained MLP to decide what is worth transmitting given the available bandwidth. The matching step uses Mahalanobis distance rather than simple Euclidean distance, which matters because position uncertainty grows with depth and a naive distance metric ignores that entirely.
+The challenge of cooperative perception is not scanning the surroundings, but the communication between the RSUs and the vehicles. An RSU might detect up to fourty objects in a busy intersection per frame but the V2X channel has limited bandwich, meaning that the RSU cannot send everything. What the RSU decides to transmit can not be random and must consider what the vehicle already knows to maximize the amount of channel bandwidth used to fill the vehicle's blind spots. Thus, the question is how to find what objects are in the vehicle's blind spot and how to determine which ones are worth sending. 
+
+\medskip
+This paper describes a system created to answer that question. Using the DAIR-V2X dataset \cite{yu2022dairv2x}, we built a full pipeline that runs detection using YOLOv10-N \cite{wang2024yolov10}, tracks objects over time with ByteTrack \cite{zhang2022bytetrack}, converts detections into shared world coordinates, matches RSU and vehicle object lists to find what the vehicle is missing, and then uses a trained MLP to decide what is worth transmitting given the available bandwidth. Then, the matching step uses Mahalanobis distance rather than simple Euclidean distance, which matters because position uncertainty grows with depth and a naive distance metric ignores that entirely.
 
 \medskip
 The contributions of this work are:
@@ -81,10 +80,9 @@ The contributions of this work are:
 
 \subsection{Cooperative Perception and V2X Communication}
 
-The idea of sharing perception data between vehicles is not new, but making it work under real communication constraints has proven difficult. Early V2V work like V2VNet \cite{wang2020v2vnet} showed that sharing intermediate feature maps between vehicles could substantially improve joint state prediction compared to acting on local data alone. The results were compelling, but the approach assumed essentially unlimited communication: every vehicle shared everything with every other vehicle in range. That assumption does not hold in practice.
-
+Sharing data between vehicles is not a new idea. V2VNet \cite{wang2020v2net} was one of the first to share feature maps between vehicles but assumed unlimited bandwidth would be unrealistic. 
 \medskip
-Where2comm \cite{hu2022where2comm} was one of the first systems to treat bandwidth as a hard constraint rather than an afterthought. It used spatial confidence maps to identify which parts of the scene were actually informative and transmitted only those regions, cutting communication volume significantly while preserving most of the accuracy gain. More recent work on task-oriented semantic communication \cite{gan2026scomcp} takes this further, asking not just which features are informative but which are relevant to the specific downstream task. Our approach follows a similar philosophy: rather than compressing or filtering raw features, we train a small classifier to score each blind spot candidate by how much it matters to the receiving vehicle, then transmit only the top-ranked ones.
+Where2comm \cite{hu2022where2comm} used spatial confidence maps to seperate only the important parts of the scence, transmitting only those parts, which significantly cut down volume while preserving accuracy.  Newer work goes begins to explore what features are actually usefulu for the task. Our pipeline uses similar logic, and scores every blind spot candidate by how relevent it is to the vehicle of interest and only traansmits the highest ranking ones. 
 
 \subsection{Object Detection}
 
