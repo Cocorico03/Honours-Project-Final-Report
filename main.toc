@@ -2,10 +2,10 @@
 \contentsline {section}{\numberline {2}Related Work}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Cooperative Perception and V2X Communication}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Object Detection}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Multi-Object Tracking}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Multi-Object Tracking}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Probabilistic Matching and Mahalanobis Distance}{5}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Methodology}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Dataset}{6}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Methodology}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Dataset}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}System Pipeline Overview}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Object Detection Training}{7}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}ByteTrack Integration}{14}{subsection.3.4}%
